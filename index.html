@@ -152,8 +152,15 @@ label{display:flex;flex-direction:column;gap:5px;font-size:10.5px;letter-spacing
 .pset summary{cursor:pointer;padding:12px 16px;font-weight:600;color:var(--navy);font-size:14px;list-style:none;display:flex;justify-content:space-between;gap:10px}
 .pset summary::-webkit-details-marker{display:none}.pset summary span{font-weight:400;color:var(--grey);font-size:13px}
 .pset[open] summary{border-bottom:1px solid var(--line)}
-.psgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;padding:14px 16px 16px}
+.psgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px 14px;padding:14px 16px 16px}
+.psgrid label{white-space:nowrap}
 .psgrid .hint{grid-column:1/-1;font-size:12.5px;color:var(--grey);margin:0}
+.ptab.one{margin-top:18px}.ptab .ty{min-height:40px;padding:8px 26px 8px 10px;font-size:14px;width:auto;min-width:0;max-width:170px}
+.ptab tfoot td{border-top:1px solid var(--rule);padding:12px 8px 12px 0;font-weight:600;color:var(--navy);font-variant-numeric:tabular-nums;white-space:nowrap}
+.ptab tfoot .num{text-align:right;padding-right:12px}
+.bytype{margin-top:28px}.bytype h3{margin:0 0 4px;font-family:'EB Garamond',Georgia,serif;font-weight:500;font-size:22px;color:var(--navy);border-bottom:1px solid var(--rule);padding-bottom:6px}
+.bt{display:flex;flex-wrap:wrap;justify-content:space-between;gap:4px 16px;padding:10px 0;border-bottom:1px solid var(--line)}
+.bt b{color:var(--navy);font-weight:600}.bt span{display:block;font-size:12px;color:var(--goldtx)}.bt .bn{font-size:13.5px;color:var(--grey);font-variant-numeric:tabular-nums}
 .pcat{margin-top:26px}
 .pcat-h{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:6px 16px;border-bottom:1px solid var(--rule);padding-bottom:6px}
 .pcat-h h3{margin:0;font-family:'EB Garamond',Georgia,serif;font-weight:500;font-size:22px;color:var(--navy)}
@@ -165,10 +172,10 @@ label{display:flex;flex-direction:column;gap:5px;font-size:10.5px;letter-spacing
 .ptab tr.ln td{padding-top:10px}.ptab tr.nt td{padding:0 8px 10px 0;border-bottom:1px solid var(--line)}
 .ptab tbody tr{cursor:default}.ptab tbody tr:hover td{background:none}
 .ptab input{min-height:40px;padding:8px 10px;font-size:15px}
-.ptab .nm{min-width:200px;width:100%}.ptab .dy{width:82px}.ptab .mo{width:130px}.ptab .rt{width:88px}
+.ptab .nm{min-width:150px;width:100%}.pscroll{overflow-x:auto}.ptab .dy{width:66px}.ptab .mo{width:118px}.ptab .rt{width:66px}
 .ptab input.num{text-align:right;font-variant-numeric:tabular-nums}
 .ptab .calc{font-variant-numeric:tabular-nums;white-space:nowrap;text-align:right;color:var(--navy);font-weight:500;padding-right:12px}
-.ptab .dif{font-size:12.5px;white-space:nowrap;text-align:right}
+.ptab .dif{font-size:12.5px;white-space:nowrap;text-align:right;padding-right:44px!important}
 .dif.pend{color:var(--grey)}.dif.ok{color:#3E7A4F}.dif.short{color:var(--wine);font-weight:600}.dif.over{color:var(--gold2)}
 .ptab .notes{font-size:13.5px;min-height:36px;color:var(--grey)}
 .pdel{all:unset;cursor:pointer;width:36px;height:36px;display:flex;align-items:center;justify-content:center;border-radius:50%;color:var(--grey);font-size:20px}
@@ -184,15 +191,15 @@ label{display:flex;flex-direction:column;gap:5px;font-size:10.5px;letter-spacing
 body{padding-left:env(safe-area-inset-left);padding-right:env(safe-area-inset-right)}
 .brandbar{padding-top:max(18px,env(safe-area-inset-top))}
 @media(max-width:640px){
- .ptiles{grid-template-columns:1fr 1fr}.ptile{padding:12px 10px 12px 0}
+ .ptiles{grid-template-columns:1fr 1fr}.psgrid{grid-template-columns:repeat(2,minmax(0,1fr))}.ptile{padding:12px 10px 12px 0}
  .ptab,.ptab tbody{display:block}.ptab thead{display:none}
- .ptab tr.ln{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr) 36px;grid-template-areas:"nm nm x" "dy gr gr" "rt net net" "rc rc rc" "df df df";gap:8px 8px;padding:12px 0 0;border:0}
+ .ptab tr.ln{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr) 36px;grid-template-areas:"nm nm x" "ty ty ty" "dy gr gr" "rt net net" "rc rc rc";gap:8px 8px;padding:12px 0 0;border:0}
  .ptab tr.nt{display:block;padding-bottom:12px;border-bottom:1px solid var(--line)}
  .ptab tr td{display:block;padding:0!important;border:0!important}
  .ptab tr.nt td{border:0!important}
  .ptab td[data-c]::before{content:attr(data-c);display:block;font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--goldtx);margin-bottom:3px}
- .ptab td.c-nm{grid-area:nm}.ptab td.c-dy{grid-area:dy}.ptab td.c-gr{grid-area:gr}.ptab td.c-rt{grid-area:rt}.ptab td.c-net{grid-area:net;text-align:left}.ptab td.c-rc{grid-area:rc}.ptab td.c-df{grid-area:df;text-align:left;padding-bottom:4px!important}.ptab td.c-x{grid-area:x}
- .ptab .dy,.ptab .mo,.ptab .rt{width:100%}.ptab .calc{text-align:left;font-size:18px;padding-top:8px!important}
+ .ptab td.c-nm{grid-area:nm}.ptab td.c-dy{grid-area:dy}.ptab td.c-gr{grid-area:gr}.ptab td.c-rt{grid-area:rt}.ptab td.c-net{grid-area:net;text-align:left}.ptab td.c-rc{grid-area:rc}.ptab tr.nt td.c-df{text-align:left;padding:6px 0 0!important}.ptab td.c-x{grid-area:x}.ptab td.c-ty{grid-area:ty}.ptab .ty{width:100%;max-width:none}.ptab tfoot{display:block}.ptab tfoot tr{display:grid;grid-template-columns:1fr auto;gap:4px}.ptab tfoot td{display:none}.ptab tfoot td:first-child,.ptab tfoot #pt-net{display:block;border-top:1px solid var(--rule)!important;padding:12px 0!important}
+ .ptab .dy,.ptab .mo,.ptab .rt{width:100%}.ptab .calc{text-align:left;font-size:18px;line-height:44px;padding-top:0!important}.ptab .calc::before{line-height:1.5}
  .pcat-h h3{font-size:20px}
  body.on-pay .fab{display:none}
  body{font-size:15px}
@@ -291,16 +298,18 @@ body{padding-left:env(safe-area-inset-left);padding-right:env(safe-area-inset-ri
     <details class="pset" id="pset">
       <summary>Your details and tax settings <span id="psetSum"></span></summary>
       <div class="psgrid">
-        <label>Base salary (AUD a year)<input id="ps-salary" inputmode="decimal" placeholder="e.g. 291000"></label>
-        <label>Completed years of service<input id="ps-years" type="number" min="0" step="1" inputmode="numeric"></label>
-        <label>Marginal tax rate %<input id="ps-marginal" inputmode="decimal" placeholder="47"></label>
-        <label>Leave tax rate % (genuine redundancy)<input id="ps-leave" inputmode="decimal" placeholder="32"></label>
-        <label>Tax-free base (ATO)<input id="ps-tfbase" inputmode="decimal"></label>
+        <label>Base salary (AUD)<input id="ps-salary" inputmode="decimal" placeholder="e.g. 291000"></label>
+        <label>Years of service<input id="ps-years" type="number" min="0" step="1" inputmode="numeric"></label>
+        <label>Marginal tax %<input id="ps-marginal" inputmode="decimal" placeholder="47"></label>
+        <label>Leave tax %<input id="ps-leave" inputmode="decimal" placeholder="32"></label>
+        <label>Tax-free base<input id="ps-tfbase" inputmode="decimal"></label>
         <label>Tax-free per year of service<input id="ps-tfyear" inputmode="decimal"></label>
+        <p class="hint">Years of service: completed years only. Leave tax %: unused leave paid on a genuine redundancy is taxed at no more than 32%. Tax-free base and per-year amounts: the ATO’s genuine redundancy limits for 2026–27.</p>
         <p class="hint" id="psHint"></p>
       </div>
     </details>
     <div id="pcats"></div>
+    <div id="pbytype"></div>
     <p class="disc">Estimates only, using the settings above. Your employer’s payslip and the ATO decide the actual tax. Tax-free limits change each July. This is general information, not financial or tax advice.</p>
   </section>
   <section id="pane-cal" role="tabpanel" aria-labelledby="tab-cal" hidden>
@@ -671,23 +680,20 @@ function renderPay(){
     $('pset').open=true;renderPay.done=false;updatePay();return;
   }
   if(!renderPay.done){$('pset').open=false;renderPay.done=true}
-  $('pcats').innerHTML=PCATS.map(c=>{
-    const items=pay.items.filter(i=>i.cat===c.k);
-    return `<section class="pcat" data-cat="${c.k}"><div class="pcat-h"><h3>${esc(c.label)}</h3><span class="sum" id="pcs-${c.k}"></span><span class="rule">${esc(c.rule)}</span></div>
-    ${items.length?`<table class="ptab"><thead><tr><th>Item</th><th class="num">Days</th><th class="num">Gross</th><th class="num">Tax %</th><th class="num">Expected net</th><th class="num">Received</th><th></th><th></th></tr></thead><tbody>
-    ${items.map(i=>`<tr class="ln" data-id="${esc(i.id)}">
+  const opts=v=>PCATS.map(c=>`<option value="${c.k}"${c.k===v?' selected':''}>${esc(c.label)}</option>`).join('');
+  $('pcats').innerHTML=`<div class="pscroll"><table class="ptab one"><thead><tr><th>Item</th><th>Type</th><th class="num">Days</th><th class="num">Gross</th><th class="num">Tax %</th><th class="num">Expected net</th><th class="num">Received</th><th></th></tr></thead><tbody>
+    ${pay.items.map(i=>`<tr class="ln" data-id="${esc(i.id)}">
       <td class="c-nm" data-c="Item"><input class="nm" data-f="name" value="${esc(i.name)}" placeholder="Description" aria-label="Item"></td>
+      <td class="c-ty" data-c="Type"><select class="ty" data-f="cat" aria-label="Type">${opts(i.cat)}</select></td>
       <td class="c-dy" data-c="Days"><input class="dy num" data-f="days" value="${esc(i.days)}" inputmode="decimal" aria-label="Days"></td>
       <td class="c-gr" data-c="Gross"><input class="mo num" data-f="gross" value="${esc(i.gross)}" inputmode="decimal" aria-label="Gross amount"></td>
       <td class="c-rt" data-c="Tax %"><input class="rt num" data-f="rate" value="${esc(i.rate)}" inputmode="decimal" aria-label="Tax rate override"></td>
       <td class="calc c-net" data-c="Expected net" id="pn-${esc(i.id)}"></td>
       <td class="c-rc" data-c="Received"><input class="mo num" data-f="received" value="${esc(i.received)}" inputmode="decimal" placeholder="Not yet" aria-label="Amount received"></td>
-      <td class="dif c-df" id="pd-${esc(i.id)}"></td>
       <td class="c-x"><button type="button" class="pdel" data-pdel="${esc(i.id)}" aria-label="Remove ${esc(i.name||'item')}">×</button></td></tr>
-      <tr class="nt" data-id="${esc(i.id)}"><td colspan="8"><input class="notes" data-f="notes" value="${esc(i.notes)}" placeholder="Notes, e.g. how it was worked out" aria-label="Notes"></td></tr>`).join('')}
-    </tbody></table>`:''}
-    <button class="btn padd" type="button" data-padd="${c.k}">+ Add ${esc(c.label.toLowerCase())} item</button></section>`;
-  }).join('');
+      <tr class="nt" data-id="${esc(i.id)}"><td colspan="5"><input class="notes" data-f="notes" value="${esc(i.notes)}" placeholder="Notes, e.g. how it was worked out" aria-label="Notes"></td><td colspan="3" class="dif c-df" id="pd-${esc(i.id)}"></td></tr>`).join('')}
+    </tbody><tfoot><tr class="tot"><td>Total</td><td></td><td class="num" id="pt-days"></td><td class="num" id="pt-gross"></td><td class="num" id="pt-rate"></td><td class="calc" id="pt-net"></td><td class="num" id="pt-rc"></td><td></td></tr></tfoot></table></div>
+    <button class="btn padd" type="button" data-padd="other">+ Add line</button>`;
   updatePay();
 }
 function updatePay(){
@@ -706,11 +712,9 @@ function updatePay(){
     row.querySelector('[data-f=rate]').placeholder=(x.rate*100).toFixed(1);
     const [cls,txt]=difHtml(x),d=$('pd-'+it.id);d.className='dif c-df '+cls;d.textContent=txt;
   }
-  for(const cat of PCATS){
-    const el=$('pcs-'+cat.k);if(!el)continue;let g=0,n=0,r=0;
-    pay.items.filter(i=>i.cat===cat.k).forEach(i=>{const x=c.lines[i.id];g+=x.g;n+=x.net;r+=x.rc||0});
-    el.innerHTML=g?`<b>${esc(aud(g))}</b> gross · <b>${esc(aud(n))}</b> net · ${esc(aud(r))} received`:'';
-  }
+  const rows=PCATS.map(cat=>{let g=0,n=0,r=0,k=0;pay.items.filter(i=>i.cat===cat.k).forEach(i=>{const x=c.lines[i.id];g+=x.g;n+=x.net;r+=x.rc||0;k++});return{cat,g,n,r,k}}).filter(x=>x.k);
+  $('pbytype').innerHTML=rows.length?`<div class="bytype"><h3>By type</h3>${rows.map(x=>`<div class="bt"><div><b>${esc(x.cat.label)}</b><span>${esc(x.cat.rule)}</span></div><div class="bn"><b>${esc(aud(x.g))}</b> gross · <b>${esc(aud(x.n))}</b> net · ${esc(aud(x.r))} received</div></div>`).join('')}</div>`:'';
+  if($('pt-gross')){let d=0;pay.items.forEach(i=>{d+=nz(i.days)||0});$('pt-days').textContent=d?d.toFixed(1):'';$('pt-gross').textContent=aud(T.g,true);$('pt-rate').textContent=T.g?(T.t/T.g*100).toFixed(1)+'%':'';$('pt-net').textContent=aud(T.n,true);$('pt-rc').textContent=T.r?aud(T.r,true):''}
 }
 function addPayItem(cat,name){const id='pi-'+Date.now().toString(36)+Math.random().toString(36).slice(2,5);pay.items.push({id,cat,name:name||'',days:'',gross:'',rate:'',received:'',notes:''});return id}
 $('pane-pay').addEventListener('input',e=>{
@@ -721,7 +725,7 @@ $('pane-pay').addEventListener('input',e=>{
 });
 $('pane-pay').addEventListener('click',e=>{
   if(e.target.closest('#pStart')){PCATS.forEach(c=>{if(c.seed)addPayItem(c.k,c.seed)});savePay();renderPay();return}
-  const a=e.target.closest('[data-padd]');if(a){const id=addPayItem(a.dataset.padd);savePay();renderPay();const inp=document.querySelector(`tr.ln[data-id="${id}"] [data-f=name]`);if(inp)inp.focus();return}
+  const a=e.target.closest('[data-padd]');if(a){const id=addPayItem(pay.items.length?pay.items[pay.items.length-1].cat:'other');savePay();renderPay();const inp=document.querySelector(`tr.ln[data-id="${id}"] [data-f=name]`);if(inp)inp.focus();return}
   const d=e.target.closest('[data-pdel]');if(d){const i=pay.items.findIndex(x=>x.id===d.dataset.pdel);if(i<0)return;const [gone]=pay.items.splice(i,1);savePay();renderPay();
     lastPayDeleted={item:gone,index:i};toast(`Removed ${gone.name||'item'}`,true)}
 });
