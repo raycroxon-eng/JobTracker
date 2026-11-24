@@ -142,12 +142,59 @@ label{display:flex;flex-direction:column;gap:5px;font-size:10.5px;letter-spacing
 .vbody img{max-width:100%;height:auto;background:#fff}
 .vbody pre{background:#fff;padding:24px;max-width:900px;width:100%;white-space:pre-wrap;font:14px/1.5 Inter,sans-serif;margin:0}
 .vmsg{color:#fff;font-size:14px;margin:auto;text-align:center;max-width:420px}
+.tabs .ts{display:none}
+.pay-intro{color:var(--grey);font-size:14px;margin:18px 0 4px;max-width:70ch}
+.ptiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:0;margin:16px 0 8px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.ptile{padding:14px 16px 14px 0}.ptile .v{font-family:'EB Garamond',Georgia,serif;font-size:clamp(26px,3.6vw,36px);line-height:1.05;color:var(--navy);font-variant-numeric:lining-nums tabular-nums;white-space:nowrap}
+.ptile .k{font-size:12px;color:var(--grey);margin-top:4px}.ptile.hl .v{color:var(--gold2)}
+.pbar{height:8px;background:var(--soft);border-radius:4px;overflow:hidden;margin:6px 0 4px}.pbar i{display:block;height:100%;background:var(--gold);border-radius:4px;transition:width .3s}
+.pset{margin:18px 0 6px;border:1px solid var(--line);border-radius:6px;background:#fff}
+.pset summary{cursor:pointer;padding:12px 16px;font-weight:600;color:var(--navy);font-size:14px;list-style:none;display:flex;justify-content:space-between;gap:10px}
+.pset summary::-webkit-details-marker{display:none}.pset summary span{font-weight:400;color:var(--grey);font-size:13px}
+.pset[open] summary{border-bottom:1px solid var(--line)}
+.psgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;padding:14px 16px 16px}
+.psgrid .hint{grid-column:1/-1;font-size:12.5px;color:var(--grey);margin:0}
+.pcat{margin-top:26px}
+.pcat-h{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:6px 16px;border-bottom:1px solid var(--rule);padding-bottom:6px}
+.pcat-h h3{margin:0;font-family:'EB Garamond',Georgia,serif;font-weight:500;font-size:22px;color:var(--navy)}
+.pcat-h .sum{font-size:13px;color:var(--grey);font-variant-numeric:tabular-nums}.pcat-h .sum b{color:var(--navy);font-weight:600}
+.pcat-h .rule{width:100%;font-size:12px;color:var(--goldtx)}
+.ptab{width:100%;border-collapse:collapse;margin-top:2px}
+.ptab th{font-size:10px;letter-spacing:.14em;padding:10px 8px 6px 0;border-bottom:1px solid var(--line)}
+.ptab td{padding:8px 8px 4px 0;border-bottom:0;vertical-align:middle}
+.ptab tr.ln td{padding-top:10px}.ptab tr.nt td{padding:0 8px 10px 0;border-bottom:1px solid var(--line)}
+.ptab tbody tr{cursor:default}.ptab tbody tr:hover td{background:none}
+.ptab input{min-height:40px;padding:8px 10px;font-size:15px}
+.ptab .nm{min-width:200px;width:100%}.ptab .dy{width:82px}.ptab .mo{width:130px}.ptab .rt{width:88px}
+.ptab input.num{text-align:right;font-variant-numeric:tabular-nums}
+.ptab .calc{font-variant-numeric:tabular-nums;white-space:nowrap;text-align:right;color:var(--navy);font-weight:500;padding-right:12px}
+.ptab .dif{font-size:12.5px;white-space:nowrap;text-align:right}
+.dif.pend{color:var(--grey)}.dif.ok{color:#3E7A4F}.dif.short{color:var(--wine);font-weight:600}.dif.over{color:var(--gold2)}
+.ptab .notes{font-size:13.5px;min-height:36px;color:var(--grey)}
+.pdel{all:unset;cursor:pointer;width:36px;height:36px;display:flex;align-items:center;justify-content:center;border-radius:50%;color:var(--grey);font-size:20px}
+.pdel:hover,.pdel:focus-visible{color:var(--wine);background:#F6ECEC}
+.padd{margin-top:10px}
+.pempty{padding:28px 0;border-bottom:1px solid var(--line)}
+.pempty b{display:block;font-family:'EB Garamond',Georgia,serif;font-weight:500;font-size:24px;color:var(--navy)}
+.pempty p{color:var(--grey);margin:4px 0 14px}
+.disc{font-size:12.5px;color:var(--grey);margin-top:26px;border-top:1px solid var(--line);padding-top:12px;max-width:80ch}
 .err{grid-column:1/-1;color:var(--wine);font-size:14px;margin:0}
 @media(prefers-reduced-motion:no-preference){dialog[open]{animation:up .2s ease-out}@keyframes up{from{transform:translateY(10px);opacity:0}}}
 .fab{display:none}
 body{padding-left:env(safe-area-inset-left);padding-right:env(safe-area-inset-right)}
 .brandbar{padding-top:max(18px,env(safe-area-inset-top))}
 @media(max-width:640px){
+ .ptiles{grid-template-columns:1fr 1fr}.ptile{padding:12px 10px 12px 0}
+ .ptab,.ptab tbody{display:block}.ptab thead{display:none}
+ .ptab tr.ln{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr) 36px;grid-template-areas:"nm nm x" "dy gr gr" "rt net net" "rc rc rc" "df df df";gap:8px 8px;padding:12px 0 0;border:0}
+ .ptab tr.nt{display:block;padding-bottom:12px;border-bottom:1px solid var(--line)}
+ .ptab tr td{display:block;padding:0!important;border:0!important}
+ .ptab tr.nt td{border:0!important}
+ .ptab td[data-c]::before{content:attr(data-c);display:block;font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--goldtx);margin-bottom:3px}
+ .ptab td.c-nm{grid-area:nm}.ptab td.c-dy{grid-area:dy}.ptab td.c-gr{grid-area:gr}.ptab td.c-rt{grid-area:rt}.ptab td.c-net{grid-area:net;text-align:left}.ptab td.c-rc{grid-area:rc}.ptab td.c-df{grid-area:df;text-align:left;padding-bottom:4px!important}.ptab td.c-x{grid-area:x}
+ .ptab .dy,.ptab .mo,.ptab .rt{width:100%}.ptab .calc{text-align:left;font-size:18px;padding-top:8px!important}
+ .pcat-h h3{font-size:20px}
+ body.on-pay .fab{display:none}
  body{font-size:15px}
  .brandbar{padding:max(10px,env(safe-area-inset-top)) 16px 10px;gap:8px}
  .brand{gap:10px}.logo{width:34px;height:34px;font-size:14px}.wm{font-size:12.5px;letter-spacing:.16em}
@@ -155,7 +202,7 @@ body{padding-left:env(safe-area-inset-left);padding-right:env(safe-area-inset-ri
  .band{border-radius:0;box-shadow:none;margin:0;padding:16px 16px calc(96px + env(safe-area-inset-bottom))}
  header{padding-bottom:10px}.eyebrow{font-size:9.5px;margin-bottom:4px}h1{font-size:28px}
  .tabs{position:sticky;top:0;z-index:5;background:#fff;gap:0;margin:0 -16px;padding:0 16px}
- .tabs button{flex:1;text-align:center;padding:13px 0 11px;font-size:14.5px}
+ .tabs button{flex:1;text-align:center;padding:13px 0 11px;font-size:14.5px}.tabs .tl{display:none}.tabs .ts{display:inline}
  .top{margin-top:14px}.seg{display:flex;width:100%}.seg button{flex:1;padding:0 8px}
  .counts{display:flex;overflow-x:auto;gap:8px;margin:12px -16px 0;padding:0 16px 12px;border:0;scroll-snap-type:x proximity;scrollbar-width:none}
  .counts::-webkit-scrollbar{display:none}
@@ -165,10 +212,10 @@ body{padding-left:env(safe-area-inset-left);padding-right:env(safe-area-inset-ri
  .bar{margin:4px 0 6px;gap:8px}.bar input{flex:1 1 100%}
  #addBtn{display:none}
  #expBtn,#restoreBtn{flex:1;min-height:40px;font-size:13px!important}
- table,thead,tbody{display:block}thead{display:none}
- tbody tr{display:grid;grid-template-columns:auto minmax(0,1fr) auto;grid-template-areas:"co co st" "rl rl rl" "sa dt x";gap:2px 12px;align-items:center;padding:14px 0;border-bottom:1px solid var(--line)}
- tbody tr:hover td{background:none}
- td{display:block;border:0;padding:0}
+ #tbl,#tbl thead,#tbl tbody{display:block}#tbl thead{display:none}
+ #tbl tbody tr{display:grid;grid-template-columns:auto minmax(0,1fr) auto;grid-template-areas:"co co st" "rl rl rl" "sa dt x";gap:2px 12px;align-items:center;padding:14px 0;border-bottom:1px solid var(--line)}
+ #tbl tbody tr:hover td{background:none}
+ #tbl td{display:block;border:0;padding:0}
  td.co{grid-area:co;font-size:21px}td.rl{grid-area:rl;font-size:14.5px}td.stc{grid-area:st;align-self:start;padding-top:4px}
  td.num{grid-area:sa;text-align:left;font-size:13.5px;color:var(--navy);font-weight:500}td.num:empty{display:none}
  td.date{grid-area:dt;font-size:13px}td.date:not(:empty)::before{content:"Applied "}
@@ -205,7 +252,8 @@ body{padding-left:env(safe-area-inset-left);padding-right:env(safe-area-inset-ri
   </header>
   <div class="tabs" role="tablist" aria-label="Views">
     <button type="button" role="tab" id="tab-apps" aria-controls="pane-apps" data-tab="apps">Applications</button>
-    <button type="button" role="tab" id="tab-cal" aria-controls="pane-cal" data-tab="cal">Interview calendar</button>
+    <button type="button" role="tab" id="tab-cal" aria-controls="pane-cal" data-tab="cal"><span class="tl">Interview calendar</span><span class="ts">Calendar</span></button>
+    <button type="button" role="tab" id="tab-pay" aria-controls="pane-pay" data-tab="pay"><span class="tl">Redundancy payout</span><span class="ts">Payout</span></button>
   </div>
   <section id="pane-apps" role="tabpanel" aria-labelledby="tab-apps">
 
@@ -236,6 +284,24 @@ body{padding-left:env(safe-area-inset-left);padding-right:env(safe-area-inset-ri
   </table>
   <div id="emptyBox"></div>
   <p class="foot" id="foot"></p>
+  </section>
+  <section id="pane-pay" role="tabpanel" aria-labelledby="tab-pay" hidden>
+    <p class="pay-intro">Track each part of your payout: what you’re owed before tax, the estimated tax, what should land in your account, and what actually arrived.</p>
+    <div class="ptiles" id="ptiles"></div>
+    <details class="pset" id="pset">
+      <summary>Your details and tax settings <span id="psetSum"></span></summary>
+      <div class="psgrid">
+        <label>Base salary (AUD a year)<input id="ps-salary" inputmode="decimal" placeholder="e.g. 291000"></label>
+        <label>Completed years of service<input id="ps-years" type="number" min="0" step="1" inputmode="numeric"></label>
+        <label>Marginal tax rate %<input id="ps-marginal" inputmode="decimal" placeholder="47"></label>
+        <label>Leave tax rate % (genuine redundancy)<input id="ps-leave" inputmode="decimal" placeholder="32"></label>
+        <label>Tax-free base (ATO)<input id="ps-tfbase" inputmode="decimal"></label>
+        <label>Tax-free per year of service<input id="ps-tfyear" inputmode="decimal"></label>
+        <p class="hint" id="psHint"></p>
+      </div>
+    </details>
+    <div id="pcats"></div>
+    <p class="disc">Estimates only, using the settings above. Your employer’s payslip and the ATO decide the actual tax. Tax-free limits change each July. This is general information, not financial or tax advice.</p>
   </section>
   <section id="pane-cal" role="tabpanel" aria-labelledby="tab-cal" hidden>
     <div class="calhead">
@@ -309,8 +375,8 @@ const DBN='job-tracker',STORE='applications',LS='job-tracker-v1';
 let idb=null;
 function openIdb(){return new Promise((res,rej)=>{
   if(!window.indexedDB)return rej();
-  const r=indexedDB.open(DBN,1);
-  r.onupgradeneeded=()=>{const d=r.result;if(!d.objectStoreNames.contains(STORE))d.createObjectStore(STORE,{keyPath:'id'});if(!d.objectStoreNames.contains('documents'))d.createObjectStore('documents',{keyPath:'id'})};
+  const r=indexedDB.open(DBN,2);
+  r.onupgradeneeded=()=>{const d=r.result;if(!d.objectStoreNames.contains(STORE))d.createObjectStore(STORE,{keyPath:'id'});if(!d.objectStoreNames.contains('documents'))d.createObjectStore('documents',{keyPath:'id'});if(!d.objectStoreNames.contains('payout'))d.createObjectStore('payout',{keyPath:'id'})};
   r.onsuccess=()=>res(r.result);r.onerror=()=>rej(r.error);
 })}
 const tx=(mode,fn)=>new Promise((res,rej)=>{const t=idb.transaction(STORE,mode);const out=fn(t.objectStore(STORE));t.oncomplete=()=>res(out&&out.result);t.onerror=()=>rej(t.error)});
@@ -339,17 +405,20 @@ async function replaceAll(list){
   render();
 }
 async function connect(){
-  try{idb=await openIdb();jobs=await tx('readonly',s=>s.getAll())||[];setSync('Saved on this device','ok');cleanDocs().catch(()=>{})}
-  catch(e){idb=null;try{jobs=JSON.parse(localStorage.getItem(LS)||'[]')}catch(_){jobs=[]}setSync('Saved in this browser','')}
+  try{await _connect()}finally{if(tab==='pay')renderPay()}
+}
+async function _connect(){
+  try{idb=await openIdb();jobs=await tx('readonly',s=>s.getAll())||[];setSync('Saved on this device','ok');cleanDocs().catch(()=>{});await loadPay()}
+  catch(e){idb=null;try{jobs=JSON.parse(localStorage.getItem(LS)||'[]')}catch(_){jobs=[]}setSync('Saved in this browser','');await loadPay()}
   render();
 }
 
 /* ---------- backup ---------- */
 const toDataUrl=b=>new Promise((res,rej)=>{const r=new FileReader();r.onload=()=>res(r.result);r.onerror=()=>rej(r.error);r.readAsDataURL(b)});
 async function exportData(){
-  let documents=[];
+  let documents=[];const payout=pay;
   if(idb){const all=await dtx('readonly',s=>s.getAll())||[];for(const d of all){documents.push({id:d.id,name:d.name,type:d.type,size:d.size,added:d.added,data:await toDataUrl(d.blob)})}}
-  const blob=new Blob([JSON.stringify({app:'job-tracker',version:2,exported:new Date().toISOString(),applications:jobs,documents},null,2)],{type:'application/json'});
+  const blob=new Blob([JSON.stringify({app:'job-tracker',version:2,exported:new Date().toISOString(),applications:jobs,documents,payout},null,2)],{type:'application/json'});
   const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='job-applications-'+new Date().toISOString().slice(0,10)+'.json';
   document.body.appendChild(a);a.click();setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove()},500);
   toast('Backup downloaded',false);
@@ -357,14 +426,15 @@ async function exportData(){
 async function importData(file){
   try{
     const d=JSON.parse(await file.text());const list=Array.isArray(d)?d:d.applications;
-    if(!Array.isArray(list))throw 0;
-    const clean=list.filter(j=>j&&j.company&&j.role).map(j=>({...j,id:String(j.id||'job-'+Math.random().toString(36).slice(2))}));
+    if(!Array.isArray(list)&&!d.payout)throw 0;
+    const clean=(list||[]).filter(j=>j&&j.company&&j.role).map(j=>({...j,id:String(j.id||'job-'+Math.random().toString(36).slice(2))}));
     const byId=new Map(jobs.map(j=>[j.id,j]));clean.forEach(j=>byId.set(j.id,j));
     if(idb&&Array.isArray(d.documents)&&d.documents.length){
       const docs=[];for(const x of d.documents){if(!x||!x.id||!/^data:/.test(x.data||''))continue;const b=await (await fetch(x.data)).blob();docs.push({id:String(x.id),name:String(x.name||'Resume'),type:String(x.type||b.type),size:+x.size||b.size,added:x.added||'',blob:b})}
       await dtx('readwrite',s=>docs.forEach(x=>s.put(x)));
     }
-    await replaceAll([...byId.values()]);toast(`Restored ${clean.length} application${clean.length===1?'':'s'}`,false);
+    if(d.payout&&Array.isArray(d.payout.items)){pay=normPay(d.payout);await savePayNow();renderPay()}
+    await replaceAll([...byId.values()]);toast(d.payout&&!clean.length?'Restored your redundancy payout':`Restored ${clean.length} application${clean.length===1?'':'s'}${d.payout?' and your payout':''}`,false);
   }catch(e){toast('That file isn’t a job tracker backup',false)}
 }
 
@@ -549,7 +619,113 @@ $('yesDel').onclick=async()=>{
   try{await remove(j.id);toast(`Deleted ${j.company}`)}catch(e){setSync('Couldn’t delete — try again','warn')}
 };
 function toast(t,undo=true){$('toastText').textContent=t;$('undo').style.display=undo?'':'none';$('toast').classList.add('on');clearTimeout(toastT);toastT=setTimeout(()=>$('toast').classList.remove('on'),6000)}
-$('undo').onclick=async()=>{$('toast').classList.remove('on');if(lastDeleted){const j=lastDeleted;lastDeleted=null;await save(j)}};
+$('undo').onclick=async()=>{$('toast').classList.remove('on');if(lastPayDeleted&&tab==='pay'){const {item,index}=lastPayDeleted;lastPayDeleted=null;pay.items.splice(index,0,item);savePay();renderPay();return}if(lastDeleted){const j=lastDeleted;lastDeleted=null;await save(j)}};
+
+
+/* ---------- redundancy payout ---------- */
+const PCATS=[
+ {k:'redundancy',label:'Redundancy pay',rule:'Tax-free up to the ATO limit, then taxed at your marginal rate',seed:'Redundancy pay'},
+ {k:'notice',label:'Notice period',rule:'Ordinary pay, taxed at your marginal rate',seed:'Notice period – base salary'},
+ {k:'annual',label:'Annual leave',rule:'Taxed at no more than the leave rate on a genuine redundancy',seed:'Unused annual leave'},
+ {k:'lsl',label:'Long service leave',rule:'Taxed at no more than the leave rate on a genuine redundancy',seed:'Long service leave'},
+ {k:'other',label:'Shares & other',rule:'Taxed at your marginal rate unless you set a rate',seed:''}];
+const PDEF={salary:'',years:'',marginal:47,leaveRate:32,tfBase:13598,tfYear:6801};
+let pay={id:'payout',settings:{...PDEF},items:[]},payT=null;
+const nz=v=>{const n=parseFloat(String(v??'').replace(/[^\d.\-]/g,''));return isNaN(n)?null:n};
+const aud=(n,c)=>n==null?'':(n<0?'−':'')+'$'+Math.abs(n).toLocaleString('en-AU',{minimumFractionDigits:c?2:0,maximumFractionDigits:c?2:0});
+function normPay(p){return{id:'payout',settings:{...PDEF,...(p.settings||{})},items:(p.items||[]).map(i=>({id:String(i.id||'pi-'+Math.random().toString(36).slice(2,8)),cat:PCATS.some(c=>c.k===i.cat)?i.cat:'other',name:String(i.name||''),days:i.days??'',gross:i.gross??'',rate:i.rate??'',received:i.received??'',notes:String(i.notes||'')}))}}
+const ptx=(mode,fn)=>new Promise((res,rej)=>{const t=idb.transaction('payout',mode);const out=fn(t.objectStore('payout'));t.oncomplete=()=>res(out&&out.result);t.onerror=()=>rej(t.error)});
+async function loadPay(){
+  try{if(idb){const p=await ptx('readonly',s=>s.get('payout'));if(p)pay=normPay(p)}else{const p=JSON.parse(localStorage.getItem(LS+'-payout')||'null');if(p)pay=normPay(p)}}catch(e){}
+}
+async function savePayNow(){clearTimeout(payT);try{if(idb)await ptx('readwrite',s=>s.put(JSON.parse(JSON.stringify(pay))));else localStorage.setItem(LS+'-payout',JSON.stringify(pay))}catch(e){setSync('Couldn’t save — try again','warn')}}
+function savePay(){clearTimeout(payT);payT=setTimeout(savePayNow,400)}
+function dailyRate(){const s=nz(pay.settings.salary);return s?s/260:null}
+function calcPay(){
+  const st=pay.settings,mr=(nz(st.marginal)??47)/100,lr=(nz(st.leaveRate)??32)/100,yrs=nz(st.years);
+  const limit=yrs==null?null:(nz(st.tfBase)||0)+(nz(st.tfYear)||0)*Math.max(0,Math.floor(yrs));
+  let tfLeft=limit??0;const dr=dailyRate(),out={};
+  for(const it of pay.items){
+    let g=nz(it.gross),auto=false;if(g==null&&dr&&nz(it.days)){g=dr*nz(it.days);auto=true}
+    g=g??0;let tax,ov=nz(it.rate);
+    if(ov!=null)tax=g*ov/100;
+    else if(it.cat==='redundancy'){const free=Math.min(g,Math.max(0,tfLeft));tfLeft-=free;tax=(g-free)*mr}
+    else if(it.cat==='annual'||it.cat==='lsl')tax=g*lr;
+    else tax=g*mr;
+    const net=g-tax,rc=nz(it.received);
+    out[it.id]={g,auto,tax,net,rate:g?tax/g:0,rc,diff:rc==null?null:rc-net};
+  }
+  return{lines:out,limit};
+}
+function payTotals(c){let g=0,t=0,n=0,r=0;for(const it of pay.items){const x=c.lines[it.id];g+=x.g;t+=x.tax;n+=x.net;r+=x.rc||0}return{g,t,n,r}}
+function difHtml(x){
+  if(x.rc==null)return['pend','Pending'];
+  if(Math.abs(x.diff)<1)return['ok','Received in full'];
+  return x.diff<0?['short',aud(-x.diff)+' less than expected']:['over',aud(x.diff)+' more than expected'];
+}
+function renderPay(){
+  const st=pay.settings;
+  $('ps-salary').value=st.salary;$('ps-years').value=st.years;$('ps-marginal').value=st.marginal;$('ps-leave').value=st.leaveRate;$('ps-tfbase').value=st.tfBase;$('ps-tfyear').value=st.tfYear;
+  if(!pay.items.length){
+    $('pcats').innerHTML=`<div class="pempty"><b>No payout items yet</b><p>Start with the usual parts of a redundancy package, then fill in the amounts from your separation letter.</p><button class="btn primary" type="button" id="pStart">Add the standard items</button></div>`;
+    $('pset').open=true;renderPay.done=false;updatePay();return;
+  }
+  if(!renderPay.done){$('pset').open=false;renderPay.done=true}
+  $('pcats').innerHTML=PCATS.map(c=>{
+    const items=pay.items.filter(i=>i.cat===c.k);
+    return `<section class="pcat" data-cat="${c.k}"><div class="pcat-h"><h3>${esc(c.label)}</h3><span class="sum" id="pcs-${c.k}"></span><span class="rule">${esc(c.rule)}</span></div>
+    ${items.length?`<table class="ptab"><thead><tr><th>Item</th><th class="num">Days</th><th class="num">Gross</th><th class="num">Tax %</th><th class="num">Expected net</th><th class="num">Received</th><th></th><th></th></tr></thead><tbody>
+    ${items.map(i=>`<tr class="ln" data-id="${esc(i.id)}">
+      <td class="c-nm" data-c="Item"><input class="nm" data-f="name" value="${esc(i.name)}" placeholder="Description" aria-label="Item"></td>
+      <td class="c-dy" data-c="Days"><input class="dy num" data-f="days" value="${esc(i.days)}" inputmode="decimal" aria-label="Days"></td>
+      <td class="c-gr" data-c="Gross"><input class="mo num" data-f="gross" value="${esc(i.gross)}" inputmode="decimal" aria-label="Gross amount"></td>
+      <td class="c-rt" data-c="Tax %"><input class="rt num" data-f="rate" value="${esc(i.rate)}" inputmode="decimal" aria-label="Tax rate override"></td>
+      <td class="calc c-net" data-c="Expected net" id="pn-${esc(i.id)}"></td>
+      <td class="c-rc" data-c="Received"><input class="mo num" data-f="received" value="${esc(i.received)}" inputmode="decimal" placeholder="Not yet" aria-label="Amount received"></td>
+      <td class="dif c-df" id="pd-${esc(i.id)}"></td>
+      <td class="c-x"><button type="button" class="pdel" data-pdel="${esc(i.id)}" aria-label="Remove ${esc(i.name||'item')}">×</button></td></tr>
+      <tr class="nt" data-id="${esc(i.id)}"><td colspan="8"><input class="notes" data-f="notes" value="${esc(i.notes)}" placeholder="Notes, e.g. how it was worked out" aria-label="Notes"></td></tr>`).join('')}
+    </tbody></table>`:''}
+    <button class="btn padd" type="button" data-padd="${c.k}">+ Add ${esc(c.label.toLowerCase())} item</button></section>`;
+  }).join('');
+  updatePay();
+}
+function updatePay(){
+  const c=calcPay(),T=payTotals(c),dr=dailyRate();
+  const pct=T.n>0?Math.min(100,Math.round(T.r/T.n*100)):0;
+  $('ptiles').innerHTML=`<div class="ptile"><div class="v">${aud(T.g)}</div><div class="k">Total before tax</div></div>
+    <div class="ptile"><div class="v">${aud(T.t)}</div><div class="k">Estimated tax${T.g?' · '+(T.t/T.g*100).toFixed(1)+'%':''}</div></div>
+    <div class="ptile hl"><div class="v">${aud(T.n)}</div><div class="k">Expected in your account</div></div>
+    <div class="ptile"><div class="v">${aud(T.r)}</div><div class="k">Received so far · ${aud(Math.max(0,T.n-T.r))} to come</div><div class="pbar" aria-hidden="true"><i style="width:${pct}%"></i></div></div>`;
+  $('psetSum').textContent=[nz(pay.settings.salary)?aud(nz(pay.settings.salary))+' salary':'',c.limit!=null?aud(c.limit)+' tax-free limit':'Add years of service'].filter(Boolean).join(' · ');
+  $('psHint').textContent=(c.limit!=null?`Tax-free limit on redundancy pay: ${aud(nz(pay.settings.tfBase)||0)} + ${aud(nz(pay.settings.tfYear)||0)} × ${Math.floor(nz(pay.settings.years))} years = ${aud(c.limit)}. `:'Enter completed years of service to work out the tax-free limit. ')+(dr?`Daily rate ${aud(dr,true)} (salary ÷ 260), used when you enter days but no gross amount. `:'')+'The ATO figures shown are for 2026–27.';
+  for(const it of pay.items){
+    const x=c.lines[it.id],n=$('pn-'+it.id);if(!n)continue;
+    n.textContent=aud(x.net,true);
+    const row=n.closest('tr');row.querySelector('[data-f=gross]').placeholder=x.auto?aud(x.g,true).replace('$',''):'0';
+    row.querySelector('[data-f=rate]').placeholder=(x.rate*100).toFixed(1);
+    const [cls,txt]=difHtml(x),d=$('pd-'+it.id);d.className='dif c-df '+cls;d.textContent=txt;
+  }
+  for(const cat of PCATS){
+    const el=$('pcs-'+cat.k);if(!el)continue;let g=0,n=0,r=0;
+    pay.items.filter(i=>i.cat===cat.k).forEach(i=>{const x=c.lines[i.id];g+=x.g;n+=x.net;r+=x.rc||0});
+    el.innerHTML=g?`<b>${esc(aud(g))}</b> gross · <b>${esc(aud(n))}</b> net · ${esc(aud(r))} received`:'';
+  }
+}
+function addPayItem(cat,name){const id='pi-'+Date.now().toString(36)+Math.random().toString(36).slice(2,5);pay.items.push({id,cat,name:name||'',days:'',gross:'',rate:'',received:'',notes:''});return id}
+$('pane-pay').addEventListener('input',e=>{
+  const f=e.target.dataset.f;
+  if(f){const id=e.target.closest('tr').dataset.id,it=pay.items.find(x=>x.id===id);if(it){it[f]=e.target.value;savePay();updatePay()}return}
+  const map={'ps-salary':'salary','ps-years':'years','ps-marginal':'marginal','ps-leave':'leaveRate','ps-tfbase':'tfBase','ps-tfyear':'tfYear'};
+  if(map[e.target.id]){pay.settings[map[e.target.id]]=e.target.value;savePay();updatePay()}
+});
+$('pane-pay').addEventListener('click',e=>{
+  if(e.target.closest('#pStart')){PCATS.forEach(c=>{if(c.seed)addPayItem(c.k,c.seed)});savePay();renderPay();return}
+  const a=e.target.closest('[data-padd]');if(a){const id=addPayItem(a.dataset.padd);savePay();renderPay();const inp=document.querySelector(`tr.ln[data-id="${id}"] [data-f=name]`);if(inp)inp.focus();return}
+  const d=e.target.closest('[data-pdel]');if(d){const i=pay.items.findIndex(x=>x.id===d.dataset.pdel);if(i<0)return;const [gone]=pay.items.splice(i,1);savePay();renderPay();
+    lastPayDeleted={item:gone,index:i};toast(`Removed ${gone.name||'item'}`,true)}
+});
+let lastPayDeleted=null;
 
 /* ---------- calendar ---------- */
 let calMonth=(()=>{const d=new Date();return new Date(d.getFullYear(),d.getMonth(),1)})(),tab='apps';
@@ -574,10 +750,10 @@ function renderCal(){
 }
 function setTab(t){
   tab=t;document.querySelectorAll('.tabs button').forEach(b=>b.setAttribute('aria-selected',b.dataset.tab===t));
-  $('pane-apps').hidden=t!=='apps';$('pane-cal').hidden=t!=='cal';
-  $('pageTitle').textContent=t==='cal'?'Interview calendar':'Job applications';document.body.classList.toggle('on-cal',t==='cal');
-  try{history.replaceState(null,'',t==='cal'?'#calendar':location.pathname)}catch(e){}
-  if(t==='cal')renderCal();
+  $('pane-apps').hidden=t!=='apps';$('pane-cal').hidden=t!=='cal';$('pane-pay').hidden=t!=='pay';
+  $('pageTitle').textContent={cal:'Interview calendar',pay:'Redundancy payout'}[t]||'Job applications';document.body.classList.toggle('on-cal',t==='cal');document.body.classList.toggle('on-pay',t==='pay');
+  try{history.replaceState(null,'',t==='cal'?'#calendar':t==='pay'?'#payout':location.pathname)}catch(e){}
+  if(t==='cal')renderCal();if(t==='pay')renderPay();
 }
 document.querySelector('.tabs').addEventListener('click',e=>{const b=e.target.closest('[data-tab]');if(b)setTab(b.dataset.tab)});
 $('calPrev').onclick=()=>{calMonth=new Date(calMonth.getFullYear(),calMonth.getMonth()-1,1);renderCal()};
@@ -604,7 +780,7 @@ $('rows').addEventListener('click',openRow);
 $('rows').addEventListener('keydown',e=>{if(e.target.closest('[data-del]'))return;if(e.key==='Enter'||e.key===' '){e.preventDefault();openRow(e)}});
 
 $('today').textContent=new Date().toLocaleDateString('en-AU',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
-setTab(location.hash==='#calendar'?'cal':'apps');
+setTab(location.hash==='#calendar'?'cal':location.hash==='#payout'?'pay':'apps');
 if('serviceWorker' in navigator&&/^https?:$/.test(location.protocol))navigator.serviceWorker.register('sw.js').catch(()=>{});
 render();connect();
 }
